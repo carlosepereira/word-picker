@@ -25,7 +25,8 @@ app.post('/', (req, res) => {
 })
 
 const searchWords = (req, res, body) => {
-    const { match, guess, wrong, language } = body;
+    const { match, guess, guessPosition, wrong, language } = body;
+    
     let path = '';
     switch (language) {
         case 'portuguese':
