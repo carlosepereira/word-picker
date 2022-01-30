@@ -2,22 +2,31 @@ const express = require('express');
 const { readFile } = require('fs');
 const bodyParser = require('body-parser')
 const cors = require('cors')
+const { engine } = require('express-handlebars')
 
 const app = express();
 
+app.engine('handlebars', engine());
+app.set('view engine', 'handlebars');
+app.set('views','./views/layouts')
+
+app.use(express.static('public'));
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json())
 app.use(cors())
 
-app.post('/',(req, res) => {
-    console.log(req.body);
+app.get('/', (req, res) => {
+    res.render('index', { layout: false })
+})
+
+app.post('/', (req, res) => {
     const body = req.body
     procurarPalavras(req, res, body)
 })
 
 const procurarPalavras = (req, res, body) => {
     const { match, guess, wrong } = body;
-    readFile('word.txt', (err, data) => {
+    readFile('palavras.txt', (err, data) => {
         if (err) throw err;
         let palavras = data.toString('utf-8').toLocaleLowerCase().split(' ');
     

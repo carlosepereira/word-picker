@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Word Picker</title>
+</head>
+<body>
+    <div class="row">
+        <div>
+            <h1 class="text-center">Word Picker</h1>
+        </div>
+    </div>
+
+    <div class="row mt-3">
+        <div class="col">
+            <h3 class="text-center">Letras na posição correta (colocar em ordem)</h3>
+        </div>
+    </div>
+    <div class="row justify-content-center">
+        <div class="col-auto">
+            <input type="text" class="letter-box-match" maxlength="1" id="0">
+        </div>
+        <div class="col-auto">
+            <input type="text" class="letter-box-match" maxlength="1" id="1">
+        </div>
+        <div class="col-auto">
+            <input type="text" class="letter-box-match" maxlength="1" id="2">
+        </div>
+        <div class="col-auto">
+            <input type="text" class="letter-box-match" maxlength="1" id="3">
+        </div>
+        <div class="col-auto">
+            <input type="text" class="letter-box-match" maxlength="1" id="4">
+        </div>
+    </div>
+
+    <div class="row mt-5">
+        <div class="col">
+            <h3 class="text-center">Letras que existem na palavra</h3>
+        </div>
+    </div>
+    <div class="row justify-content-center">
+        <div class="col-auto">
+            <input type="text" class="letter-box-guess" maxlength="1" id="0">
+        </div>
+        <div class="col-auto">
+            <input type="text" class="letter-box-guess" maxlength="1" id="1">
+        </div>
+        <div class="col-auto">
+            <input type="text" class="letter-box-guess" maxlength="1" id="2">
+        </div>
+        <div class="col-auto">
+            <input type="text" class="letter-box-guess" maxlength="1" id="3">
+        </div>
+        <div class="col-auto">
+            <input type="text" class="letter-box-guess" maxlength="1" id="4">
+        </div>
+    </div>
+    
+    <!-- <div class="row mt-5">
+        <div class="col">
+            <h3 class="text-center">Letras que não existem na palavra</h3>
+        </div>
+    </div>
+    <div class="row justify-content-center">
+        <div class="col-auto">
+            <input type="text" class="letter-box-wrong" maxlength="1" id="0">
+        </div>
+        <div class="col-auto">
+            <input type="text" class="letter-box-wrong" maxlength="1" id="1">
+        </div>
+        <div class="col-auto">
+            <input type="text" class="letter-box-wrong" maxlength="1" id="2">
+        </div>
+        <div class="col-auto">
+            <input type="text" class="letter-box-wrong" maxlength="1" id="3">
+        </div>
+        <div class="col-auto">
+            <input type="text" class="letter-box-wrong" maxlength="1" id="4">
+        </div>
+    </div> -->
+
+    <div class="row mt-5">
+        <div class="col">
+            <h3 class="text-center">Letras que não existem na palavra</h3>
+        </div>
+    </div>
+    <div class="row justify-content-center">
+        <div class="col-auto">
+            <input class="letter-wrong" type="checkbox" value="a">a
+            <input class="letter-wrong" type="checkbox" value="b">b
+            <input class="letter-wrong" type="checkbox" value="c">c
+            <input class="letter-wrong" type="checkbox" value="d">d
+            <input class="letter-wrong" type="checkbox" value="e">e
+            <input class="letter-wrong" type="checkbox" value="f">f
+            <input class="letter-wrong" type="checkbox" value="g">g
+            <input class="letter-wrong" type="checkbox" value="h">h
+            <input class="letter-wrong" type="checkbox" value="i">i
+            <input class="letter-wrong" type="checkbox" value="j">j
+            <input class="letter-wrong" type="checkbox" value="k">k
+            <input class="letter-wrong" type="checkbox" value="l">l
+            <input class="letter-wrong" type="checkbox" value="m">m
+            <input class="letter-wrong" type="checkbox" value="n">n
+            <input class="letter-wrong" type="checkbox" value="o">o
+            <input class="letter-wrong" type="checkbox" value="p">p
+            <input class="letter-wrong" type="checkbox" value="q">q
+            <input class="letter-wrong" type="checkbox" value="r">r
+            <input class="letter-wrong" type="checkbox" value="s">s
+            <input class="letter-wrong" type="checkbox" value="t">t
+            <input class="letter-wrong" type="checkbox" value="u">u
+            <input class="letter-wrong" type="checkbox" value="v">v
+            <input class="letter-wrong" type="checkbox" value="w">w
+            <input class="letter-wrong" type="checkbox" value="x">x
+            <input class="letter-wrong" type="checkbox" value="y">y
+            <input class="letter-wrong" type="checkbox" value="z">z
+        </div>
+    </div>
+
+    <div class="row justify-content-center mt-3">
+        <div class="col-auto">
+            <button type="submit" id="submit" class="btn btn-primary">Enviar</button>
+        </div>
+    </div>
+
+    <div class="row justify-content-center mt-3">
+        <div class="col-auto">
+            <table>
+                <thead>
+                    <tr>
+                        <th colspan="8" class="text-center">Possibilidades</th>
+                    </tr>
+                </thead>
+                <tbody id="possibilities">
+                </tbody>
+            </table>
+        </div>
+    </div>
+</body>
+</html>
+
+<style>
+
+    tbody th {
+        border: 1px solid black;
+    }
+
+    th { 
+        padding: 10px;
+    }
+
+    .letter-box-match, .letter-box-guess, .letter-box-wrong {
+        width: 40px;
+        height: 40px;
+        text-align: center;
+    }
+
+</style>
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+<script src="http://localhost:3000/js/index.js" ></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
