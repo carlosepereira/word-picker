@@ -34,6 +34,8 @@ const searchWords = (req, res, body) => {
         case 'english':
             path = 'word.txt';
             break;
+        default: 
+            path = 'palavras.txt';
     }
 
     readFile(path, (err, data) => {
