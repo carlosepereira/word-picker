@@ -1,7 +1,7 @@
 const letterBoxesMatch = document.getElementsByClassName('letter-box-match');
 const letterBoxesGuess = document.getElementsByClassName('letter-box-guess');
-// const letterBoxesWrong = document.getElementsByClassName('letter-box-wrong');
 const lettersWrong = document.querySelectorAll('input[type=checkbox]')
+const language = document.querySelectorAll('input[type=radio]')
 const btnSend = document.getElementById('submit');
 const tablePossibilities = document.getElementById('possibilities');
 
@@ -14,8 +14,10 @@ btnSend.addEventListener('click', async (e) => {
     let letters = {
         match: {},
         guess: {},
-        wrong: []
+        wrong: [],
+        language: ''
     };
+
     Object.values({ ...letterBoxesMatch }).forEach((k) => {
         letters.match[k.id] = k.value;
     });
@@ -27,6 +29,12 @@ btnSend.addEventListener('click', async (e) => {
     [ ...lettersWrong].forEach(k => {
         if(k.checked) {
             letters.wrong.push(k.value);
+        }
+    });
+
+    [...language].forEach(lang => {
+        if(lang.checked) {
+            letters.language = lang.value;
         }
     })
     

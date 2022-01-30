@@ -20,13 +20,23 @@ app.get('/', (req, res) => {
 })
 
 app.post('/', (req, res) => {
-    const body = req.body
-    searchWords(req, res, body)
+    const body = req.body;
+    searchWords(req, res, body);
 })
 
 const searchWords = (req, res, body) => {
-    const { match, guess, wrong } = body;
-    readFile('palavras.txt', (err, data) => {
+    const { match, guess, wrong, language } = body;
+    let path = '';
+    switch (language) {
+        case 'portuguese':
+            path = 'palavras.txt';
+            break;
+        case 'english':
+            path = 'word.txt';
+            break;
+    }
+
+    readFile(path, (err, data) => {
         if (err) throw err;
         let words = data.toString('utf-8').toLocaleLowerCase().split(' ');
     
