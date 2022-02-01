@@ -36,7 +36,7 @@ btnSend.addEventListener('click', async (e) => {
 })
 
 const submit = async (letters) => {
-    const rawResponse = await fetch('http://localhost:3000', {
+    const rawResponse = await fetch('https://carlos-word-picker.herokuapp.com/', {
       method: 'POST',
       headers: {
         'Accept': 'application/json',
