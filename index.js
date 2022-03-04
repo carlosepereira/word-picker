@@ -5,6 +5,7 @@ const cors = require('cors')
 const { engine } = require('express-handlebars')
 
 const app = express();
+const port = process.env.PORT || 3000
 
 app.engine('handlebars', engine());
 app.set('view engine', 'handlebars');
@@ -78,6 +79,6 @@ const searchWords = (req, res, body) => {
     });
 }
 
-app.listen(80, () => {
-    console.log('Rodando na porta 80')
+app.listen(port, () => {
+    console.log(`Running on port ${port}`)
 });
